@@ -1,0 +1,35 @@
+﻿@model Tarefa
+@{
+    ViewData["Title"] = "AddTarefa";
+    Layout = "~/Views/Shared/_tarefaLayout.cshtml";
+}
+<h2>Nova Tarefa <a asp-action="Index" class="btn btn-sm btn-outline-success">Retorna</a></h2>
+
+<form asp-action="AddTarefa" method="post">
+    <div class="form-group">
+        <label for="Tarefa">Tarefa:</label>
+        <input asp-for="CD_TAREFA"  type="hidden" class="form-control" />
+        <input asp-for="DS_TAREFA" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="DataCadastro">Data Cadastro:</label>
+        <input asp-for="DT_CADASTRO" class="form-control" />
+    </div>
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Nova Tarefa</button>
+    </div>
+</form>
+@if (Model != null)
+{
+    <h2>Tarefa</h2>
+    <table class="table table-sm table-striped table-bordered m-2">
+        <thead><tr><th>ID</th><th>Nome</th><th>Inicio</th><th>Fim</th></tr></thead>
+        <tbody>
+            <tr>
+                <td>@Model.CD_TAREFA</td>
+                <td>@Model.DS_TAREFA</td>
+                <td>@Model.DT_CADASTRO</td>
+            </tr>
+        </tbody>
+    </table>
+}

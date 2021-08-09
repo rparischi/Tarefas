@@ -1,0 +1,29 @@
+﻿@model Tarefa
+@{
+    ViewData["Title"] = "GetTarefa";
+    Layout = "~/Views/Shared/_tarefaLayout.cshtml";
+}
+<h2>Obter tarefa pelo Id <a asp-action="Index" class="btn btn-sm btn-success">Retornar</a></h2>
+<form method="post">
+    <div class="form-group">
+        <label for="id">Id:</label>
+        <input class="form-control" name="id" />
+    </div>
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Obter Tarefa</button>
+    </div>
+</form>
+@if (Model != null)
+{
+    <h2>Tarefa</h2>
+    <table class="table table-sm table-striped table-bordered m-2">
+        <thead><tr><th>ID</th><th>Tarefa</th><th>Data Cadastro</th></tr></thead>
+        <tbody>
+            <tr>
+                <td>@Model.CD_TAREFA</td>
+                <td>@Model.DS_TAREFA</td>
+                <td>@Model.DT_CADASTRO</td>
+            </tr>
+        </tbody>
+    </table>
+}
